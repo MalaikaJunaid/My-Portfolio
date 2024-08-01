@@ -251,7 +251,7 @@ html {
   position: relative;
   width: 40px;
   height: 40px;
-  background-image: url(./src/pngs/crescent-moon.png);
+  background-image: url(src/png/crescent-moon (1).png);
   background-size: 50%;
   transition-duration: 0.5s;
   cursor: pointer;
@@ -260,7 +260,7 @@ html {
 #switchforvisualmode:checked + #labelforvisualmode {
   transform: rotate(360deg);
   transition-duration: 0.5s;
-  background-image: url(./src/pngs/sun.png);
+  background-image: url(src/png/sun.png);
   background-size: 60%;
 }
 
@@ -295,14 +295,14 @@ html {
   position: relative;
   justify-content: center;
   width: 40px;
-  background-image: url(./src/svg/Mute_Icon.svg);
+  background-image: url(src/svg/Mute_Icon.svg);
   cursor: pointer;
   transition-duration: 0.5s;
 }
 
 #switchforsound:checked + #labelforsound {
   transition-duration: 0.5s;
-  background-image: url(./src/svg/Speaker_Icon.svg);
+  background-image: url(src/svg/Speaker_Icon.svg);
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
@@ -322,7 +322,7 @@ header {
   z-index: 99999;
   justify-content: center;
   overflow-y: hidden;
-  background-image: url(./src/svg/Pulse-0.4s-200px.svg);
+  background-image: url(src/svg/Pulse-0.4s-200px.svg);
   background-size: 10%;
 }
 
@@ -359,21 +359,9 @@ noscript {
   width: 80%;
   padding: 0 20px;
   justify-content: space-between;
-  z-index: 9999;
-  border-bottom: 2px solid var(--color-navbarBorder-dark);
-  position: relative;
-}
-
-.navbar img {
-  height: 55px;
-  cursor: pointer;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  margin-right: auto;
+  z-index: 999;
+  border: 1px solid var(--color-navbarBorder-dark);
+  border-radius: 5px;
 }
 
 .navbar-tabs-ul {
@@ -435,42 +423,10 @@ noscript {
   }
 }
 
-.courses-box2 {
-  width: 100%;
-  max-width: 300px; /* Adjust this to your preferred size */
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-.project-box2 {
-  width: 100%;
-  max-width: 300px; /* Adjust this to your preferred size */
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-.courses-box-wrapper {
+.navbar-tabs-ul {
   display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
 }
 
-.project-box-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.info-div {
-  padding: 20px;
-  text-align: center;
-}
-
-.image-div img {
-  width: 100%;
-  height: auto;
-}
-
-.project-buttons {
-  margin-top: 10px;
+.navbar-toggle-button-container {
+  display: none;
 }
