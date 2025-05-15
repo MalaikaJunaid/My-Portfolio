@@ -1,198 +1,528 @@
-/* ==================== ROOT VARIABLES ==================== */
-:root {
-  --theme-color: #11cdef;
-  --theme-dark: #172b4d;
-  --theme-light: #f4f5f7;
-  --border-color: #888;
-  --font-whitney: "Whitney", sans-serif;
-  --font-mono: "Fira Code", monospace;
-  --transition-fast: 0.2s ease-in-out;
-  --z-preloader: 99999;
-  --z-overlay: 999999;
+/* Label and toggle switch styles for settings and visual mode */
+#labelforsetting,
+#labelforvisualmode,
+#switchforvisualmode:checked+#labelforvisualmode {
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-/* ==================== BASE RESET ==================== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  user-select: none;
+/* Set label height and background size */
+#labelforsetting,
+#labelforsound {
+    height: 40px;
+    background-size: 60%;
 }
 
+/* Apply invert filter to elements for dark mode effect */
+#preloader,
+.invertapplied,
+.invertsettinglabel {
+    filter: invert(1);
+}
+
+/* Preloader and noscript elements take full screen */
+#preloader,
+noscript {
+    width: 100%;
+    height: 100%;
+}
+
+/* Set dark background color for body and noscript */
+body,
+noscript {
+    background-color: var(--color-dark-mode);
+}
+
+/* Prevent horizontal scroll on main and body */
+.main,
 body {
-  font-family: var(--font-whitney);
-  background: var(--theme-light);
-  transition: background var(--transition-fast);
+    overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-mono);
+/* Set global font-family */
+#backtotopbutton article,
+:root {
+    font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* ==================== SELECTION ==================== */
+/* Prevent overflow for specified containers */
+.eye,
+.image-div,
+.logo,
+.navbar,
+.project-box,
+.course-box,
+.resume-btn,
+footer {
+    overflow: hidden;
+}
+
+/* Remove underlines for CTAs and nav links */
+.cta,
+.github-redirect,
+.navbar-tabs-ul a {
+    text-decoration: none;
+}
+
+/* Set fill color to white for Gmail logo and SVG paths */
+#GmailLogo,
+.sign svg path {
+    fill: white;
+}
+
+/* Global box-sizing and user interaction resets */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove selection background */
 ::selection {
-  background: var(--theme-color);
-  color: white;
+    background-color: transparent;
+}
+::-moz-selection {
+    background: none;
 }
 
-/* ==================== SCROLLBAR ==================== */
-::-webkit-scrollbar {
-  width: 8px;
+/* Global HTML base styling */
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
-::-webkit-scrollbar-thumb {
-  background: var(--theme-color);
-  border-radius: 4px;
+
+/* Root CSS variables for themes and colors */
+:root {
+    cursor: default;
+    --color-white: #fff;
+    --color-black: #000;
+    --color-dark-mode: #11111b;
+    --color-light-mode: #ece7e1;
+    --color-ddd-color: #ddd;
+    --color-gray: #c4c4c4;
+    --color-purple: #8000ff;
+    --color-light-purple: #cf59e6;
+    --color-light-blue: #6bc5f8;
+    --color-navbarBorder-dark: #e2e2e207;
+    --color-shadowDark: rgba(0, 0, 0, 0.137);
+    --static-heading-gradient-blue: #b0f3f1;
+    --static-heading-gradient-pink: #ffcfdf;
+    --tech-stack-box-first-color: #1a1a29;
+    --tech-stack-box-second-color: rgba(27, 27, 40, 0);
+    --tech-stack-box-border-color: #292929;
+}
+
+/* Apply 'fira code' font for specific sections */
+#hello-friend,
+.footer-bottom article,
+.getintouch-heading article,
+.language-speak article,
+.navbar-tabs-ul li,
+.two-words article {
+    font-family: fira code;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--theme-light);
+    background: #0a0a10;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #8000ff;
 }
 
-/* ==================== PRELOADER ==================== */
-#preloader {
-  background: var(--theme-light) url("images/preloader.gif") no-repeat center;
-  background-size: 80px 80px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: var(--z-preloader);
+/* Cursor inner circle */
+.cursor-inner {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-light-blue);
 }
 
-/* ==================== NAVBAR ==================== */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: var(--theme-dark);
-  padding: 0 20px;
-  z-index: 1000;
-  color: white;
+/* Cursor outer circle */
+.cursor-outer {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #fff;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+/* Cursor styling and position */
+.cursor-inner,
+.cursor-outer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
 }
 
-/* ==================== NAVBAR TABS ==================== */
-.navbar-tabs-ul {
-  list-style: none;
-  display: flex;
-  gap: 60px;
+/* Transition effects for setting icons */
+.setting-container,
+.settingactivate {
+    transform-origin: left;
+    transition-duration: .5s;
 }
 
-.navbar-tabs-ul li a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 500;
-  transition: color var(--transition-fast);
+/* Cursor hover animation */
+.cursor-inner.hover {
+    width: 25px;
+    height: 25px;
+    transition: .2s;
+    mix-blend-mode: difference;
+}
+.cursor-outer.hover {
+    width: 50px;
+    height: 50px;
+    transition: .2s;
 }
 
-.navbar-tabs-ul li a:hover {
-  color: var(--theme-color);
+/* Active tab and hover effect styling */
+.activeThistab:before,
+.navbar-tabs-ul li:hover:before {
+    background-color: var(--color-white);
+    height: 10px;
+    width: 10px;
+    left: -20px;
 }
 
-/* ==================== SETTINGS TOGGLE CONTAINER ==================== */
+/* Light mode overrides for variables */
+.light-mode {
+    --color-dark-mode: #ece7e1;
+    --color-black: #fff;
+    --color-white: #000;
+    --color-ddd-color: rgb(31, 31, 31);
+    --color-navbarBorder-dark: #d1d6eb;
+    --static-heading-gradient-blue: #0f7878;
+    --static-heading-gradient-pink: #f09bb9;
+    --color-shadowDark: #e2ddd7;
+    --tech-stack-box-first-color: #e7e2db;
+    --tech-stack-box-second-color: #ece7e100;
+    --tech-stack-box-border-color: #dad5cf;
+}
+
+/* Settings container layout */
 .setting-container {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-left: auto;
+    width: 60px;
+    height: 50px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 0;
 }
 
-/* ==================== TOGGLE LABEL BASE ==================== */
-.toggle-label {
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  background-size: 60%;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 1px solid var(--border-color);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform var(--transition-fast);
+/* Setting gear icon styling */
+#labelforsetting {
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    background-image: url(src/svg/settings-svgrepo-com.svg);
+    transition-duration: .5s;
+    cursor: pointer;
 }
 
-.toggle-label:hover {
-  transform: scale(1.1);
+/* Containers for toggle buttons */
+.soundtogglebuttoncontainer,
+.visualmodetogglebuttoncontainer {
+    align-items: center;
+    width: fit-content;
+    transition-duration: .3s;
 }
 
-/* ==================== TOGGLE STATES ==================== */
-.setting-toggle {
-  background-image: url("images/setting.png");
-}
-.setting-activated {
-  background-image: url("images/settingactivate.png");
+/* Expanded settings container */
+.settingactivate {
+    width: 200px;
 }
 
-.visualmode-toggle {
-  background-image: url("images/visualmode.png");
-}
-.visualmode-light {
-  background-image: url("images/visualmode-light.png");
-}
-
-.sound-toggle {
-  background-image: url("images/sound.png");
-}
-.sound-on {
-  background-image: url("images/soundon.png");
+/* Hidden visual mode toggle by default */
+.visualmodetogglebuttoncontainer {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    transform: translate(-50px) scale(0);
 }
 
-.invert-toggle {
-  background-image: url("images/invert.png");
-}
-.invert-active {
-  background-image: url("images/invert_active.png");
-}
-
-/* ==================== DARK MODE ==================== */
-body.dark-mode {
-  background: var(--theme-dark);
-  color: white;
+/* Show visual mode toggle */
+.visualmodeshow {
+    transition-duration: .3s;
+    transform: translate(0) scale(1);
 }
 
-/* ==================== INVERT MODE ==================== */
-.invert-applied {
-  filter: invert(1);
+/* Hide default checkbox inputs and hamburger for mobile menu */
+#switchforsetting,
+#switchforsound,
+#switchforvisualmode,
+.hamburger,
+.mobiletogglemenu {
+    display: none;
 }
 
-/* ==================== CUSTOM CURSOR ==================== */
-body.custom-cursor {
-  cursor: url("images/cursor.png"), auto;
+/* Rotate gear icon on toggle */
+#switchforsetting:checked+#labelforsetting {
+    transform: rotate(180deg);
+    transition-duration: .5s;
 }
 
-/* ==================== VISIBILITY CLASSES ==================== */
-.hide {
-  display: none !important;
-}
-.visible {
-  display: block !important;
-}
-
-/* ==================== MISC UTILITIES ==================== */
-.fakenavbar {
-  height: 70px;
-  width: 100%;
+/* Crescent moon icon for dark mode */
+#labelforvisualmode {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-image: url(src/png/crescent-moon\ \(1\).png);
+    background-size: 50%;
+    transition-duration: .5s;
+    cursor: pointer;
 }
 
-/* ==================== NO-SCRIPT FALLBACK ==================== */
+/* Sun icon for light mode when toggled */
+#switchforvisualmode:checked+#labelforvisualmode {
+    transform: rotate(360deg);
+    transition-duration: .5s;
+    background-image: url(src/png/sun.png);
+    background-size: 60%;
+}
+
+/* Hidden sound toggle by default */
+.soundtogglebuttoncontainer {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    transform: translate(-130px) scale(0);
+}
+
+/* Shared style for sound label and preloader */
+#labelforsound,
+#preloader {
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Show sound toggle with delay and animation */
+.soundmodeshow {
+    transition-delay: .1s;
+    transition-duration: .5s;
+    display: inline-block;
+    transform: translate(0) scale(1);
+}
+
+/* Logo transition effect */
+.logo,
+.logo:hover {
+    transition-duration: 1s;
+}
+
+/* Sound icon default (muted) */
+#labelforsound {
+    position: relative;
+    justify-content: center;
+    width: 40px;
+    background-image: url(src/svg/Mute_Icon.svg);
+    cursor: pointer;
+    transition-duration: .5s;
+}
+
+/* Speaker icon when unmuted */
+#switchforsound:checked+#labelforsound {
+    transition-duration: .5s;
+    background-image: url(src/svg/Speaker_Icon.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Header container styling */
+header {
+    width: 100%;
+    height: 115px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* Fullscreen preloader with centered animation */
+#preloader {
+    background-color: #fff;
+    position: fixed;
+    z-index: 99999;
+    justify-content: center;
+    overflow-y: hidden;
+    background-image: url(src/svg/Pulse-0.4s-200px.svg);
+    background-size: 10%;
+}
+
+/* Fixed navbar and noscript layout */
+.navbar,
 noscript {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: red;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  z-index: var(--z-overlay);
-  padding: 10px;
+    display: flex;
+    align-items: center;
+    position: fixed;
 }
 
-/* ==================== ANIMATIONS (OPTIONAL) ==================== */
-/* You can define keyframes here for toggles or loaders */
+/* Gradient text styling */
+#name,
+.getintouch-heading article {
+    background: -webkit-linear-gradient(135deg, var(--color-light-blue), var(--color-light-purple), var(--color-light-blue), var(--color-light-purple));
+    -webkit-text-fill-color: transparent;
+}
+
+/* Noscript fallback message */
+noscript {
+    justify-content: center;
+    font-size: 4rem;
+    color: #fff;
+    z-index: 999999;
+}
+
+/* Invisible dummy navbar for spacing */
+.fakenavbar {
+    height: 0;
+    width: 0%;
+    background-color: transparent;
+}
+
+/* Navbar layout and effects */
+.navbar {
+    background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color));
+    backdrop-filter: blur(10px);
+    height: 80px;
+    width: 80%;
+    padding: 0 20px;
+    justify-content: space-between;
+    z-index: 999;
+    border: 1px solid var(--color-navbarBorder-dark);
+    border-radius: 50px;
+}
+
+/* Layouts for tabs and navbar elements */
+.navbar-tabs,
+.navbar-tabs-ul {
+    height: 100%;
+    align-items: center;
+}
+
+.logo,
+.navbar-tabs-ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 80px;
+    width: 100%;
+    list-style: none;
+    color: var(--color-white);
+}
+
+.navbar-tabs {
+    display: flex;
+    width: 80%;
+}
+
+.navbar-tabs-ul {
+    list-style-type: none;
+}
+
+.navbar-tabs-ul li {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Hover indicator */
+.navbar-tabs-ul li:hover:before {
+    content: "";
+    position: absolute;
+    border-radius: 5px;
+    z-index: -1;
+}
+
+/* Navbar tab links */
+.navbar-tabs-ul a {
+    color: var(--color-white);
+    font-weight: 100;
+}
+
+/* Logo layout */
+.logo {
+    width: 10%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+/* Additional logo structure */
+.face,
+.logo-top {
+    width: 100%;
+    align-items: center;
+    display: flex;
+}
+
+/* Tooltip message */
+.hey {
+    color: #fff;
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: 300;
+    background-color: #20222e;
+    padding: 5px 10px;
+    border-radius: 20px;
+    left: 120px;
+    bottom: 80px;
+    opacity: 0;
+}
+
+/* White text for dark mode */
+#hello-friend,
+#work,
+.about-info p,
+.activeThistab,
+.language-speak article {
+    color: var(--color-white);
+}
+
+/* Rounded elements */
+.blob,
+.eye,
+.pupil {
+    border-radius: 50%;
+}
+
+/* Popup animation */
+.popup {
+    animation: 3s linear pop-up;
+}
+
+@keyframes pop-up {
+    from {
+        bottom: -50px;
+        left: 50px;
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Logo top layout */
+.logo-top {
+    height: 100%;
+    justify-content: center;
+    transform-origin: bottom;
+    position: relative;
+}
