@@ -36,6 +36,7 @@ function hamburgerMenu() {
     document.getElementById("burger-bar1").classList.toggle("hamburger-animation1");
     document.getElementById("burger-bar2").classList.toggle("hamburger-animation2");
     document.getElementById("burger-bar3").classList.toggle("hamburger-animation3");
+    document.getElementById("burger-bar4").classList.toggle("hamburger-animation4");
 }
 
 function hidemenubyli() {
@@ -44,6 +45,7 @@ function hidemenubyli() {
     document.getElementById("burger-bar1").classList.remove("hamburger-animation1");
     document.getElementById("burger-bar2").classList.remove("hamburger-animation2");
     document.getElementById("burger-bar3").classList.remove("hamburger-animation3");
+    document.getElementById("burger-bar4").classList.remove("hamburger-animation4");
 }
 
 const sections = document.querySelectorAll("section"),
