@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Malaika Junaid</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="./styles/responsive.css" />
+  <link rel="stylesheet" href="./styles/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="./scripts/aos.js" defer></script>
+  <script src="./scripts/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Contact Section -->
+  <section class="contact-section-container gradient-bg" id="contact">
+    <div class="contact-section">
+      <div class="section-heading" data-aos="fade-down">
+        <h2 class="section-heading-article glitch-text" tabindex="0" aria-label="Contact heading">
+          &#60;/Contact Me&#62;
+        </h2>
+        <p class="sectionHeadingP">Let’s connect! Whether for collaboration, conversation, or opportunities—reach out.</p>
+      </div>
+
+      <div class="contact-card-container" data-aos="fade-up">
+        <div class="contact-card">
+          <ul class="contact-info animated-list">
+            <li><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mmalaikajunaid@gmail.com">mmalaikajunaid@gmail.com</a></li>
+            <li><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mmalaikajunaid" target="_blank">linkedin.com/in/mmalaikajunaid</a></li>
+            <li><i class="fab fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/mmalaikajunaid" target="_blank">github.com/mmalaikajunaid</a></li>
+            <li><i class="fab fa-instagram"></i> <strong>Instagram:</strong> <a href="https://instagram.com/mmalaika.junaid" target="_blank">@mmalaika.junaid</a></li>
+            <li><i class="fab fa-threads"></i> <strong>Threads:</strong> <a href="https://www.threads.net/@mmalaika.junaid" target="_blank">@mmalaika.junaid</a></li>
+            <li><i class="fab fa-twitter"></i> <strong>X (Twitter):</strong> <a href="https://twitter.com/mmalaikajunaid" target="_blank">@mmalaikajunaid</a></li>
+            <li><i class="fab fa-dev"></i> <strong>Dev.to:</strong> <a href="https://dev.to/mmalaikajunaid" target="_blank">dev.to/mmalaikajunaid</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-button-div" data-aos="zoom-in">
+        <a href="mailto:mmalaikajunaid@gmail.com" class="cta-button pulse">Let's Collaborate <i class="fas fa-paper-plane"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .gradient-bg {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      padding: 60px 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .glitch-text {
+      font-size: 2.5rem;
+      position: relative;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red; }
+      20% { text-shadow: -2px -2px lime; }
+      40% { text-shadow: 2px -2px blue; }
+      60% { text-shadow: -2px 2px magenta; }
+      80% { text-shadow: 2px 2px yellow; }
+      100% { text-shadow: none; }
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .animated-list li {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .animated-list i {
+      color: #ffcc00;
+    }
+
+    .cta-button {
+      background-color: #ffcc00;
+      color: #000;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      display: inline-block;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #fff;
+      color: #111;
+      transform: scale(1.05);
+    }
+
+    .pulse {
+      animation: pulseAnim 2s infinite;
+    }
+
+    @keyframes pulseAnim {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</body>
+
+</html>
