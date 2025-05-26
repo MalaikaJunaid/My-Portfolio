@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Education - Malaika Junaid</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .edu-title {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      cursor: pointer;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .edu-title:hover {
+      background-color: #e8f0fe;
+      transform: scale(1.01);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .dropdown {
+      display: none;
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .dropdown ul {
+      list-style: disc;
+      padding-left: 1.2rem;
+    }
+    .dropdown li {
+      margin-bottom: 0.4rem;
+    }
+    .rotate {
+      transform: rotate(90deg);
+      transition: transform 0.3s;
+    }
+    .arrow {
+      transition: transform 0.3s;
+    }
+    .edu-title.active .arrow {
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+<body>
+  <h1>Education</h1>
+
+  <div class="section">
+    <div class="edu-title">COMSATS University Islamabad <span class="arrow">▶</span></div>
+    <div class="dropdown">
+      <ul>
+        <li>AI Core Courses</li>
+        <li>AI Electives</li>
+        <li>CS Core Courses</li>
+        <li>Computing Core</li>
+        <li>General Education</li>
+        <li>Mathematics</li>
+        <li>University Electives</li>
+      </ul>
+    </div>
+
+    <div class="edu-title">Ajman University <span class="arrow">▶</span></div>
+    <div class="dropdown">
+      <ul>
+        <li>Linear Algebra</li>
+        <li>Programming for Data Analytics</li>
+        <li>Data Mining</li>
+        <li>Fundamentals of Data Comm. & Networks</li>
+        <li>Operating Systems</li>
+        <li>Probability Theory</li>
+        <li>Machine Learning</li>
+        <li>Database Management Systems</li>
+        <li>Information Security</li>
+        <li>Software Engineering</li>
+        <li>Web Technologies</li>
+      </ul>
+    </div>
+
+    <div class="edu-title">Punjab College <span class="arrow">▶</span></div>
+    <div class="dropdown">
+      <ul>
+        <li>English I & II</li>
+        <li>Urdu I & II</li>
+        <li>Pakistan Studies</li>
+        <li>Islamic Studies</li>
+        <li>Maths I & II</li>
+        <li>Physics I & II</li>
+        <li>Computer Science I & II</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.edu-title').forEach((title) => {
+      title.addEventListener('click', () => {
+        title.classList.toggle('active');
+        const dropdown = title.nextElementSibling;
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>
